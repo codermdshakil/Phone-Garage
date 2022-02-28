@@ -24,7 +24,7 @@ const loadData = () => {
         firstError.style.display = "block";
         phonesContainer.textContent = " ";
     }
-    
+
     else{
         spinnerToggle('flex');
         firstError.style.display = "none";
@@ -52,7 +52,7 @@ const displayData = (phones) => {
         <div class="card-body">
             <h4 class="card-title">Name: ${phone.phone_name}</h4>
             <h5>Brand: <span class="brand-name">${phone.brand}</span></h5>
-            <a href="#" class="btn btn-primary">Details</a>
+            <a href="#" onclick="productsDetailsLoad('${phone.slug}')" class="btn btn-primary">Details</a>
         </div>
         </div>
         `;
@@ -61,3 +61,28 @@ const displayData = (phones) => {
     });
     spinnerToggle('none');
 }
+
+
+const productsDetailsLoad = (id) => {
+    const url =`https://openapi.programming-hero.com/api/phone/${id}`;
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayDetails(data.data));
+}
+
+const displayDetails = (products) => {
+    console.log(products);
+    // console.log(products.brand)
+    const div = document.createElement('div');
+    div.innerHTML = `
+    
+    
+    
+    
+    `;
+
+}
+
+
+
+
