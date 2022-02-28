@@ -9,15 +9,51 @@
     <link rel="shortcut icon" href="./media/favicon.png" type="image/x-icon">
     <!-- bootstrap linked here  -->
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!-- fontawsome linked here  -->
+    <link rel="stylesheet" href="./css/all.min.css">
     <!-- custom css file linked here  -->
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    
-    <div class="container">
-        <h1 class="text-center py-4">Hello world</h1>
-    </div>
+    <!-- header-section starts here  -->
+    <header class="header-section">
+        <!-- navber starts here  -->
+        <nav class="navbar navbar-expand-lg navber-style shadow-md">
+            <div class="container">
+              <a class="navbar-brand" href="#">
+                 <div class="logo">
+                     <img src="./media/logo.png" alt="">
+                     <h2> Phone Garage</h2>
+                 </div>
+                </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" style="color:#209cEE ;">
+                
+                <i class="fas fa-bars"></i>
+                <!-- <span class="navbar-toggler-icon" style="color: black;"></span> -->
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                  <a class="nav-link  link-style  active" aria-current="page" href="#">All Brands</a>
+                  <a class="nav-link link-style   "href="#">All Products</a>
+                  <a class="nav-link link-style " href="#">Features</a>
+                  <a class="nav-link  link-style" href="#">Pricing</a>
+                </div>
+              </div>
+            </div>
+          </nav>
 
+    </header>
+    <main>
+        <!-- home-section starts here  -->
+        <section class="home-section" >
+            <h2 class="text-center main-title">Welcome to <span class="title">Phone Garage</span></h2>
+            <div class="search-box  mx-auto">
+                <input type="search" placeholder="Search you favorite phone ..">
+                <button class="search-btn">Search <i class="fas fa-search"></i></button>
+            </div>
+        </section>
+
+    </main>
 
 
     <!-- bootstrap bundle js file linked here   -->
