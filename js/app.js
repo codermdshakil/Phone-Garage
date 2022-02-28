@@ -13,6 +13,13 @@ const spinnerToggle  = (displayStyle) => {
 }
 
 
+// details Close 
+
+const detailsClose = () => {
+    const productsDetailsContainer = document.getElementById('details-container');
+    productsDetailsContainer.textContent = "";
+}
+
 
 // laodData from api 
 const loadData = () => {
@@ -78,13 +85,15 @@ const displayDetails = (products) => {
     div.className = "col-lg-8 col-md-6 col-11 d-block m-auto";
     div.innerHTML = `
     <div class="card mb-3">
+        <div class="close-box">
+           <img onclick="detailsClose()" src="./media/close.png" alt="">
+        </div>
         <div class="row g-0 d-flex align-items-center">
             <div class="col-md-4">
             <img src="${products.image}" class="img-fluid rounded-start" alt="...">
             </div>
             <div class="col-md-8">
             <div class="card-body">
-            <div></div>
                 <h3 class="card-title"> <b>Name:</b> ${products.name}</h3>
                 <h5 class="card-title"> <b>Brand:</b> <span class="brand"> ${products.brand ? products.brand:""} </span> </h5>
                 <h6 class="card-title"> <b>ReleaseDate:</b> ${products.releaseDate ? products.releaseDate:"ReleaseDate not found"}</h6>
