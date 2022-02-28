@@ -147,15 +147,38 @@ header section starts here
 }
 
 /* main features  */
-.mainFeatures{
+.mainFeatures,
+.others{
+    display: inline-block;
     font-weight: bold;
     border-bottom: 2px solid #209cEE;
     padding-bottom: 2px;
 }
 
+/* sensor items design  */
+.secor-items{
+    background: #eaeaeb;
+    display: inline-block;
+    margin-left: 0.3rem;
+    padding: 0 0.3rem;
+    border-radius: 0.2rem;
+    margin-bottom: 0.3rem;
+}
 
+.brand{
+    background: #ff8800;
+    color: white;
+    padding: 0 0.3rem;
+    border-radius: 0.2rem;
+}
 
+.card-body{
+    position: relative;
+}
 
+.other-element{
+    margin-bottom: 0px;
+}
 
 
 
