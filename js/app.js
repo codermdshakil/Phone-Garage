@@ -2,7 +2,6 @@
 /* get elements  */
 const phonesContainer = document.getElementById('phone-container');
 
-
 /* get Error massage  */
 const firstError = document.getElementById('error1');
 
@@ -21,12 +20,11 @@ const loadData = () => {
     const searchText = searchInput.value;
     searchInput.value = "";
 
-
-    if(searchText == ""){
+    if(searchText === "" || searchText < 0){
         firstError.style.display = "block";
-        phonesContainer.textContent = '';
-
+        phonesContainer.textContent = " ";
     }
+    
     else{
         spinnerToggle('flex');
         firstError.style.display = "none";
@@ -34,21 +32,19 @@ const loadData = () => {
         const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
         fetch(url)
         .then(res => res.json())
-        .then(data => displayData(data.data))
-    }
+        .then(data => displayData(data.data));
 
+    }
 }
 
 const displayData = (phones) => {
+
     const phonefirst20 = phones.slice(0, 20);
     phonesContainer.textContent = "";
     phonefirst20.forEach(phone => {
-
-        console.log(phone);
         const div = document.createElement('div');
         div.className = "col-lg-4 col-md-6 col-10 d-block m-auto m-md-0";
         div.innerHTML =`
-
         <div class="card">
         <div class="img-frame">
           <img src="${phone.image}" class="card-img-top" alt="...">
@@ -60,7 +56,6 @@ const displayData = (phones) => {
         </div>
         </div>
         `;
-        console.log(div);
         phonesContainer.appendChild(div);
     
     });
