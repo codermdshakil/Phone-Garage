@@ -5,6 +5,7 @@ const productsDetailsContainer = document.getElementById('details-container');
 
 /* get Error massage  */
 const firstError = document.getElementById('error1');
+const secoundError = document.getElementById('error3');
 
 
 /* spinnerToggle  */
@@ -12,18 +13,14 @@ const spinnerToggle  = (displayStyle) => {
     document.getElementById('spinner').style.display = displayStyle;
 }
 
-
-// details Close 
-
+/* details Close  */
 const detailsClose = () => {
     const productsDetailsContainer = document.getElementById('details-container');
     productsDetailsContainer.textContent = "";
 }
 
-
-// laodData from api 
+/* laodData from api  */
 const loadData = () => {
-   
     const searchInput =  document.getElementById('search-input');
     const searchText = searchInput.value;
     searchInput.value = "";
@@ -31,24 +28,39 @@ const loadData = () => {
     if(searchText === "" || searchText < 0){
         firstError.style.display = "block";
         phonesContainer.textContent = " ";
+        secoundError.style.display ="none";
     }
-
     else{
         spinnerToggle('flex');
         firstError.style.display = "none";
+        secoundError.style.display ="none";
         phonesContainer.textContent = "";
+        productsDetailsContainer.textContent = "";
         const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
         fetch(url)
         .then(res => res.json())
-        .then(data => displayData(data.data));
+        .then(data => displayData(data));
 
     }
 }
 
 const displayData = (phones) => {
 
-    const phonefirst20 = phones.slice(0, 20);
+    const allstatus = phones.status;
+    const allData = phones.data;
+
+    if(allstatus === false){
+        secoundError.style.display ="block";
+        firstError.style.display = "none"
+        spinnerToggle('none');
+    }
+    else{
+        
+    const phonefirst20 = allData.slice(0, 20);
     phonesContainer.textContent = "";
+    secoundError.style.display ="none";
+
+
     phonefirst20.forEach(phone => {
         const div = document.createElement('div');
         div.className = "col-lg-4 col-md-6 col-10 d-block m-auto m-md-0";
@@ -65,9 +77,10 @@ const displayData = (phones) => {
         </div>
         `;
         phonesContainer.appendChild(div);
-    
     });
     spinnerToggle('none');
+
+    }
 }
 
 
@@ -78,13 +91,16 @@ const productsDetailsLoad = (id) => {
     .then(data => displayDetails(data.data));
 }
 
+
+/* card details show in UI  */
+
 const displayDetails = (products) => {
     console.log(products.others);
     productsDetailsContainer.textContent = "";
     const div = document.createElement('div');
     div.className = "col-lg-8 col-md-6 col-11 d-block m-auto";
     div.innerHTML = `
-    <div class="card mb-3">
+    <div class="card mb-3 main-card">
         <div class="close-box">
            <img onclick="detailsClose()" src="./media/close.png" alt="">
         </div>
@@ -97,13 +113,13 @@ const displayDetails = (products) => {
                 <h3 class="card-title"> <b>Name:</b> ${products.name}</h3>
                 <h5 class="card-title"> <b>Brand:</b> <span class="brand"> ${products.brand ? products.brand:""} </span> </h5>
                 <h6 class="card-title"> <b>ReleaseDate:</b> ${products.releaseDate ? products.releaseDate:"ReleaseDate not found"}</h6>
-                <h5 class="card-title mainFeatures">MainFeatures:</h5>
+                <h5 class="card-title mainFeatures">MainFeatures</h5>
                 <p><b>Storage :</b> ${products.mainFeatures.storage ? products.mainFeatures.storage:"Not found"}</p>
                 <p><b>Memory:</b> ${products.mainFeatures.memory ? products.mainFeatures.memory:"Not found"}</p>
                 <p><b>DisplaySize: </b> ${products.mainFeatures.displaySize ? products.mainFeatures.displaySize:"Not found"}</p>
                 <p><b>ChipSet:</b> ${products.mainFeatures.chipSet ? products.mainFeatures.chipSet:"Not found"}</p>
-                <p><b>Sensors:</b> <span  class="secor-items"> ${products.mainFeatures.sensors[0]?products.mainFeatures.sensors[0]:''} </span> <span class="secor-items">${products.mainFeatures.sensors[1]?products.mainFeatures.sensors[1]:''}</span> <span class="secor-items">${products.mainFeatures.sensors[2]?products.mainFeatures.sensors[2]:''}</span> <span class="secor-items">${products.mainFeatures.sensors[3]?products.mainFeatures.sensors[3]:''}</span> <span class="secor-items">${products.mainFeatures.sensors[4]?products.mainFeatures.sensors[4]:''}</span> <span class="secor-items">${products.mainFeatures.sensors[5]?products.mainFeatures.sensors[5]:''}</span> <span class="secor-items">${products.mainFeatures.sensors[6]?products.mainFeatures.sensors[6]:''}</span> <span class="secor-items">${products.mainFeatures.sensors[7]?products.mainFeatures.sensors[7]:''}</span> <span class="secor-items">${products.mainFeatures.sensors[8]?products.mainFeatures.sensors[8]:''}</span> <span class="secor-items">${products.mainFeatures.sensors[9]?products.mainFeatures.sensors[9]:''}</span> <span class="secor-items">${products.mainFeatures.sensors[10]?products.mainFeatures.sensors[10]:''}</span> <span class="secor-items">${products.mainFeatures.sensors[11]?products.mainFeatures.sensors[11]:''}</span> <span class="secor-items">${products.mainFeatures.sensors[12]?products.mainFeatures.sensors[12]:''}</span>  <span class="secor-items">${products.mainFeatures.sensors[13]?products.mainFeatures.sensors[13]:''}</span>  <span class="secor-items">${products.mainFeatures.sensors[14]?products.mainFeatures.sensors[14]:''}</span> <span class="secor-items">${products.mainFeatures.sensors[15]?products.mainFeatures.sensors[15]:''}</span></p>
-                <h5><b class="others">Others :</b></h5>
+                <p><b>Sensors:</b> <span  class="sencor-items"> ${products.mainFeatures.sensors[0]?products.mainFeatures.sensors[0]:''} </span> <span class="sencor-items">${products.mainFeatures.sensors[1]?products.mainFeatures.sensors[1]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[2]?products.mainFeatures.sensors[2]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[3]?products.mainFeatures.sensors[3]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[4]?products.mainFeatures.sensors[4]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[5]?products.mainFeatures.sensors[5]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[6]?products.mainFeatures.sensors[6]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[7]?products.mainFeatures.sensors[7]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[8]?products.mainFeatures.sensors[8]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[9]?products.mainFeatures.sensors[9]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[10]?products.mainFeatures.sensors[10]:''}</span> <span class="secor-items">${products.mainFeatures.sensors[11]?products.mainFeatures.sensors[11]:''}</span> <span class="secor-items">${products.mainFeatures.sensors[12]?products.mainFeatures.sensors[12]:''}</span>  <span class="secor-items">${products.mainFeatures.sensors[13]?products.mainFeatures.sensors[13]:''}</span>  <span class="secor-items">${products.mainFeatures.sensors[14]?products.mainFeatures.sensors[14]:''}</span> <span class="secor-items">${products.mainFeatures.sensors[15]?products.mainFeatures.sensors[15]:''}</span></p>
+                <h5><b class="others">Others </b></h5>
                 <p class="other-element"> <b> NFC: </b> <span class="other-item"> ${products.others.NFC? products.others.NFC:"Not found"}, </span></p> 
                 <p class="other-element"> <b> Radio</b> <span class="other-item">${products.others.Radio? products.others.Radio:"Not found"}.  </span> </p>
                 <p class="other-element"> <b>Bluetooth: </b>  <span class="other-item"> ${products.others.Bluetooth? products.others.Bluetooth:"Not found"}, </span></p> 
@@ -116,10 +132,7 @@ const displayDetails = (products) => {
     </div>
 
     `;
-
     productsDetailsContainer.appendChild(div);
-
-
 }
 
 
