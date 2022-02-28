@@ -45,16 +45,28 @@
     </header>
     <main>
         <!-- home-section starts here  -->
+    <div class="container">
         <section class="home-section" >
             <h2 class="text-center main-title">Welcome to <span class="title">Phone Garage</span></h2>
             <div class="search-box  mx-auto">
-                <input type="search" placeholder="Search you favorite phone ..">
-                <button class="search-btn">Search <i class="fas fa-search"></i></button>
+                <input id="search-input" type="search" placeholder="Search you favorite phone ..">
+                <button onclick="loadData()" class="search-btn">Search <i class="fas fa-search"></i></button>
+            </div>
+            <p class="error1" id="error1">Please! write something to search</p>
+            <p class="error1" id="error3">Result not found!</p>
+
+            <!-- spinner starts here  -->
+            <div id="spinner" >
+                <img src="./media/spinner.gif" alt="">
+            </div>
+            <div id="phone-container" class="row py-4 ">
+
             </div>
         </section>
 
     </main>
 
+    </div>
 
     <!-- bootstrap bundle js file linked here   -->
     <script src="./js/bootstrap.min.js"></script>

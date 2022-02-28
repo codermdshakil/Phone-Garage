@@ -97,10 +97,54 @@ header section starts here
 .search-btn i{
     margin-left: 5px;
 }
+.card{
+    border-radius: 10px;
+    margin-bottom: 40px;
+    padding: 10px;
+    transition: .2s ease-in;
+}
+.card:hover{
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+.img-frame{
+    position: relative;
+    overflow: hidden;
+}
+.card img{
+    width: 90%;
+    display: block;
+    margin: auto;
+}
+.brand-name{
+    font-weight: 500;
+    font-size: 23px;
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+.error1{
+    color: #cb3439;
+    padding: 5px;
+    width: 50%;
+    display: none;
+    margin:20px auto;
+    text-align: center;
+    border-radius: 10px;
+    background-color:#ffc0cb;
+}
 
 
-
-
+/*----------------------
+ spiner starts here 
+------------------------ */
+#spinner{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+}
+#spinner img{
+    width: 100px;
+}
 
 
 
@@ -144,6 +188,10 @@ header section starts here
     }
     .search-box{
         width: 75%;
+    }
+    .error1{
+        width: 75%;
+        font-size: 15px;
     }
     
 }
