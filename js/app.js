@@ -3,6 +3,7 @@
 const phonesContainer = document.getElementById('phone-container');
 const productsDetailsContainer = document.getElementById('details-container');
 
+
 /* get Error massage  */
 const firstError = document.getElementById('error1');
 const secoundError = document.getElementById('error3');
@@ -67,6 +68,7 @@ const displayData = (phones) => {
 
     phonefirst20.forEach(phone => {
         const div = document.createElement('div');
+
         div.className = "col-lg-4 col-md-6 col-10 d-block m-auto m-md-0";
         div.innerHTML =`
         <div class="card">
@@ -84,6 +86,8 @@ const displayData = (phones) => {
     });
     spinnerToggle('none');
 
+ 
+    
     }
 }
 
