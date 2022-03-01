@@ -6,6 +6,7 @@
 /*------------------
   default style 
 --------------------*/
+
 *{
     margin: 0;
     padding: 0;
@@ -14,6 +15,7 @@
     font-family: 'Poppins', sans-serif;
 
 }
+
 body{
     background-color: aliceblue;
 }
@@ -134,9 +136,11 @@ header section starts here
     border-radius: 10px;
     background-color:#ffc0cb;
 }
+
 /*----------------------
  spiner starts here 
 ------------------------ */
+
 #spinner{
     display: none;
     align-items: center;
@@ -161,7 +165,8 @@ main features
 
 /*----------------------
 sensor items design
-------------------------  */
+------------------------*/
+
 .sencor-items{
     background: #eaeaeb;
     display: inline-block;
@@ -174,6 +179,7 @@ sensor items design
 /*-------------------
  brand style here  
 ---------------------*/
+
 .brand{
     background: #ff8800;
     color: white;
@@ -184,6 +190,7 @@ sensor items design
 /*-------------------
 main details cars 
 -------------------- */
+
 .main-card{
     position: relative;
 }
@@ -195,6 +202,7 @@ main details cars
 /*----------------------
 close btn starts here 
 ------------------------ */
+
 .close-box {
     cursor: pointer;
     position: absolute;
@@ -203,8 +211,10 @@ close btn starts here
 }
 
 
+/*-------------------------
+ seeAll box starts here 
+-------------------------- */
 
-/* see all box starts here  */
 #see-allBox{
     display: none;
 }
@@ -232,10 +242,6 @@ close btn starts here
 }
 
 
-
-
-
-
 /*-------------------------------
 Media query for Medium device 
 --------------------------------- */
@@ -254,13 +260,14 @@ Media query for Medium device
 Media query for small device 
 --------------------------------- */
 @media screen and (max-width:576px) {
+    /* header-section starts here  */
     .navber-style{
         height: auto;   
     }
     .main-title{
         font-size: 20px;
     }
-    /* search-box */
+    /* search-box starts here */
     .search-box{
         width: 85%;
     }
@@ -270,7 +277,7 @@ Media query for small device
     .search-btn{
         font-size: 15px;
     }
-    /* error massage  */
+    /* error massage  starts here */
     .error1{
         width: 75%;
         font-size: 15px;

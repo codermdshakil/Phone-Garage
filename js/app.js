@@ -17,7 +17,7 @@ const spinnerToggle  = (displayStyle) => {
     document.getElementById('spinner').style.display = displayStyle;
 }
 
-// all details details Close 
+// all details Close 
 const detailsClose = () => {
     const productsDetailsContainer = document.getElementById('details-container');
     productsDetailsContainer.textContent = "";

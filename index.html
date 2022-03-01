@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-  <!-- header-section starts here  -->
+    <!-- header-section starts here  -->
+
 <header class="header-section">
   <!-- navber starts here  -->
     <nav class="navbar navbar-expand-lg navber-style shadow-md">
@@ -42,6 +43,7 @@
 </header>
 <main>
     <!-- home-section starts here  -->
+
 <div class="container">
     <section class="home-section" >
         <h2 class="text-center main-title">Welcome to <span class="title">Phone Garage</span></h2>
@@ -49,26 +51,27 @@
             <input id="search-input" type="search" placeholder="Search you favorite phone ..">
             <button onclick="loadData()" class="search-btn">Search <i class="fas fa-search"></i></button>
         </div>
-        <!-- error massages starts here -->
+    <!-- error massages starts here -->
         <p class="error1" id="error1">Please! write something to search</p>
         <p class="error1" id="error3">Result not found!</p>
 
-      <!-- details container starts here  -->
+    <!-- details container starts here  -->
         <div id="details-container" class="row  py-5"></div>
 
-        <!-- spinner starts here  -->
+    <!-- spinner starts here  -->
         <div id="spinner" >
             <img src="./media/spinner.gif" alt="">
         </div>
         
-        <!-- phones container starts here  -->
+    <!-- phones container starts here  -->
         <div id="phone-container" class="row py-4 "></div>
         <div id="see-allBox">
-        <button id="see-allBtn" class="d-block m-auto seeAll-btn mb-5 ">See More <img class="see-all" src="./media/arrow.png" alt=""> </button>
+           <button id="see-allBtn" class="d-block m-auto seeAll-btn mb-5 ">See More <img class="see-all" src="./media/arrow.png" alt=""> </button>
         </div>
     </section>
 </main>
 </div>
+
     <!-- bootstrap bundle js file linked here   -->
     <script src="./js/bootstrap.min.js"></script>
     <!-- custom js file linked here  -->
