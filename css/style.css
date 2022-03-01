@@ -18,13 +18,12 @@ body{
     background-color: aliceblue;
 }
 
-
 /*------------------------------
 header section starts here 
 -------------------------------- */
 .navber-style{
     background-color: #fff;
-    height: 13vh;   
+    height: 11vh;   
 }
 .logo{
     display: flex;
@@ -145,17 +144,21 @@ header section starts here
     width: 100px;
 }
 
-/* main features  */
+/*------------------
+main features
+--------------------  */
+
 .mainFeatures,
 .others{
-    text-align: center;
     display: block;
     font-weight: bold;
     border-bottom: 2px solid #209cEE;
-    padding-bottom: 2px;
+    padding-bottom: 5px;
 }
 
-/* sensor items design  */
+/*----------------------
+sensor items design
+------------------------  */
 .sencor-items{
     background: #eaeaeb;
     display: inline-block;
@@ -165,7 +168,9 @@ header section starts here
     margin-bottom: 0.3rem;
 }
 
-/* brand style here  */
+/*-------------------
+ brand style here  
+---------------------*/
 .brand{
     background: #ff8800;
     color: white;
@@ -173,7 +178,9 @@ header section starts here
     border-radius: 0.2rem;
 }
 
-/* main details cars  */
+/*-------------------
+main details cars 
+-------------------- */
 .main-card{
     position: relative;
 }
@@ -182,7 +189,9 @@ header section starts here
     margin-bottom: 0px;
 }
 
-/* close btn starts here  */
+/*----------------------
+close btn starts here 
+------------------------ */
 .close-box {
     cursor: pointer;
     position: absolute;
@@ -191,32 +200,9 @@ header section starts here
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*-------------------------------
+Media query for small device 
+--------------------------------- */
 @media screen and (max-width:576px) {
     .navber-style{
         height: auto;   
@@ -225,7 +211,7 @@ header section starts here
         font-size: 20px;
     }
     .search-box{
-        width: 75%;
+        width: 80%;
     }
     .error1{
         width: 75%;
@@ -233,3 +219,4 @@ header section starts here
     }
     
 }
+

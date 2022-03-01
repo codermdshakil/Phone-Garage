@@ -29,6 +29,7 @@ const loadData = () => {
         firstError.style.display = "block";
         phonesContainer.textContent = " ";
         secoundError.style.display ="none";
+        productsDetailsContainer.textContent = "";
     }
     else{
         spinnerToggle('flex');
@@ -44,6 +45,7 @@ const loadData = () => {
     }
 }
 
+/* display data that i get from api */
 const displayData = (phones) => {
 
     const allstatus = phones.status;
@@ -51,7 +53,9 @@ const displayData = (phones) => {
 
     if(allstatus === false){
         secoundError.style.display ="block";
-        firstError.style.display = "none"
+        firstError.style.display = "none";
+        phonesContainer.textContent = " ";
+        productsDetailsContainer.textContent = "";
         spinnerToggle('none');
     }
     else{
@@ -83,7 +87,6 @@ const displayData = (phones) => {
     }
 }
 
-
 const productsDetailsLoad = (id) => {
     const url =`https://openapi.programming-hero.com/api/phone/${id}`;
     fetch(url)
@@ -91,11 +94,8 @@ const productsDetailsLoad = (id) => {
     .then(data => displayDetails(data.data));
 }
 
-
 /* card details show in UI  */
-
 const displayDetails = (products) => {
-    console.log(products.others);
     productsDetailsContainer.textContent = "";
     const div = document.createElement('div');
     div.className = "col-lg-8 col-md-6 col-11 d-block m-auto";
@@ -113,13 +113,13 @@ const displayDetails = (products) => {
                 <h3 class="card-title"> <b>Name:</b> ${products.name}</h3>
                 <h5 class="card-title"> <b>Brand:</b> <span class="brand"> ${products.brand ? products.brand:""} </span> </h5>
                 <h6 class="card-title"> <b>ReleaseDate:</b> ${products.releaseDate ? products.releaseDate:"ReleaseDate not found"}</h6>
-                <h5 class="card-title mainFeatures">MainFeatures</h5>
+                <h5 class="card-title mainFeatures">MainFeatures:</h5>
                 <p><b>Storage :</b> ${products.mainFeatures.storage ? products.mainFeatures.storage:"Not found"}</p>
                 <p><b>Memory:</b> ${products.mainFeatures.memory ? products.mainFeatures.memory:"Not found"}</p>
                 <p><b>DisplaySize: </b> ${products.mainFeatures.displaySize ? products.mainFeatures.displaySize:"Not found"}</p>
                 <p><b>ChipSet:</b> ${products.mainFeatures.chipSet ? products.mainFeatures.chipSet:"Not found"}</p>
                 <p><b>Sensors:</b> <span  class="sencor-items"> ${products.mainFeatures.sensors[0]?products.mainFeatures.sensors[0]:''} </span> <span class="sencor-items">${products.mainFeatures.sensors[1]?products.mainFeatures.sensors[1]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[2]?products.mainFeatures.sensors[2]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[3]?products.mainFeatures.sensors[3]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[4]?products.mainFeatures.sensors[4]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[5]?products.mainFeatures.sensors[5]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[6]?products.mainFeatures.sensors[6]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[7]?products.mainFeatures.sensors[7]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[8]?products.mainFeatures.sensors[8]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[9]?products.mainFeatures.sensors[9]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[10]?products.mainFeatures.sensors[10]:''}</span> <span class="secor-items">${products.mainFeatures.sensors[11]?products.mainFeatures.sensors[11]:''}</span> <span class="secor-items">${products.mainFeatures.sensors[12]?products.mainFeatures.sensors[12]:''}</span>  <span class="secor-items">${products.mainFeatures.sensors[13]?products.mainFeatures.sensors[13]:''}</span>  <span class="secor-items">${products.mainFeatures.sensors[14]?products.mainFeatures.sensors[14]:''}</span> <span class="secor-items">${products.mainFeatures.sensors[15]?products.mainFeatures.sensors[15]:''}</span></p>
-                <h5><b class="others">Others </b></h5>
+                <h5><b class="others">Others: </b></h5>
                 <p class="other-element"> <b> NFC: </b> <span class="other-item"> ${products.others.NFC? products.others.NFC:"Not found"}, </span></p> 
                 <p class="other-element"> <b> Radio</b> <span class="other-item">${products.others.Radio? products.others.Radio:"Not found"}.  </span> </p>
                 <p class="other-element"> <b>Bluetooth: </b>  <span class="other-item"> ${products.others.Bluetooth? products.others.Bluetooth:"Not found"}, </span></p> 
