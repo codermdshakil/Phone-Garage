@@ -1,30 +1,30 @@
 
-/* get containers */
+// get containers 
 const phonesContainer = document.getElementById('phone-container');
 const productsDetailsContainer = document.getElementById('details-container');
 
-const seeAll = () => {
-    document.getElementById('see-allBox').style.display = "Block";
+const seeAll = (displayStyle) => {
+    document.getElementById('see-allBox').style.display = displayStyle;
 }
 
 
-/* get Error massage  */
+// get Error massage  
 const firstError = document.getElementById('error1');
 const secoundError = document.getElementById('error3');
 
 
-/* spinnerToggle  */
+// spinnerToggle 
 const spinnerToggle  = (displayStyle) => {
     document.getElementById('spinner').style.display = displayStyle;
 }
 
-/* all details details Close  */
+// all details details Close 
 const detailsClose = () => {
     const productsDetailsContainer = document.getElementById('details-container');
     productsDetailsContainer.textContent = "";
 }
 
-/* laodData from api  */
+// laodData from api  
 const loadData = () => {
     const searchInput =  document.getElementById('search-input');
     const searchTextValue = searchInput.value;
@@ -32,12 +32,14 @@ const loadData = () => {
     searchInput.value = "";
 
     if(searchText === "" || searchText < 0){
+        seeAll("none");
         firstError.style.display = "block";
         phonesContainer.textContent = " ";
         secoundError.style.display ="none";
         productsDetailsContainer.textContent = "";
     }
     else{
+        seeAll("Block");
         spinnerToggle('flex');
         firstError.style.display = "none";
         secoundError.style.display ="none";
@@ -51,7 +53,7 @@ const loadData = () => {
     }
 }
 
-/* display data that i get from api */
+// display data that i get from api 
 const displayData = (phones) => {
 
     const allstatus = phones.status;
@@ -63,6 +65,7 @@ const displayData = (phones) => {
         phonesContainer.textContent = " ";
         productsDetailsContainer.textContent = "";
         spinnerToggle('none');
+        seeAll("none");
     }
     else{
         
@@ -92,8 +95,6 @@ const displayData = (phones) => {
     });
 
     spinnerToggle('none');
-
- 
     
     }
 }
@@ -105,11 +106,11 @@ const productsDetailsLoad = (id) => {
     .then(data => displayDetails(data.data));
 }
 
-/* card details show in UI  */
+// card details show in UI  
 const displayDetails = (products) => {
     productsDetailsContainer.textContent = "";
     const div = document.createElement('div');
-    div.className = "col-lg-8 col-md-6 col-11 d-block m-auto";
+    div.className = "col-lg-8 col-md-11 col-11 d-block m-auto";
     div.innerHTML = `
     <div class="card mb-3 main-card">
         <div class="close-box">
@@ -131,24 +132,19 @@ const displayDetails = (products) => {
                 <p><b>ChipSet:</b> ${products.mainFeatures.chipSet ? products.mainFeatures.chipSet:"Not found"}</p>
                 <p><b>Sensors:</b> <span  class="sencor-items"> ${products.mainFeatures.sensors[0]?products.mainFeatures.sensors[0]:''} </span> <span class="sencor-items">${products.mainFeatures.sensors[1]?products.mainFeatures.sensors[1]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[2]?products.mainFeatures.sensors[2]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[3]?products.mainFeatures.sensors[3]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[4]?products.mainFeatures.sensors[4]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[5]?products.mainFeatures.sensors[5]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[6]?products.mainFeatures.sensors[6]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[7]?products.mainFeatures.sensors[7]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[8]?products.mainFeatures.sensors[8]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[9]?products.mainFeatures.sensors[9]:''}</span> <span class="sencor-items">${products.mainFeatures.sensors[10]?products.mainFeatures.sensors[10]:''}</span> <span class="secor-items">${products.mainFeatures.sensors[11]?products.mainFeatures.sensors[11]:''}</span> <span class="secor-items">${products.mainFeatures.sensors[12]?products.mainFeatures.sensors[12]:''}</span>  <span class="secor-items">${products.mainFeatures.sensors[13]?products.mainFeatures.sensors[13]:''}</span>  <span class="secor-items">${products.mainFeatures.sensors[14]?products.mainFeatures.sensors[14]:''}</span> <span class="secor-items">${products.mainFeatures.sensors[15]?products.mainFeatures.sensors[15]:''}</span></p>
                 <h5><b class="others">Others: </b></h5>
-                <p class="other-element"> <b> NFC: </b> <span class="other-item"> ${products.others.NFC? products.others.NFC:"Not found"}, </span></p> 
-                <p class="other-element"> <b> Radio</b> <span class="other-item">${products.others.Radio? products.others.Radio:"Not found"}.  </span> </p>
-                <p class="other-element"> <b>Bluetooth: </b>  <span class="other-item"> ${products.others.Bluetooth? products.others.Bluetooth:"Not found"}, </span></p> 
-                <p class="other-element"> <b> USB: </b> <span class="other-item">  ${products.others.USB? products.others.USB:"Not found"}, </span></p> 
-                <p class="other-element"> <b> GPS: </b><span class="other-item">${products.others.GPS? products.others.GPS:"Not found"}, </span> </p>
-                <p class="other-element"> <b>WLAN: </b><span class="other-item"> ${products.others.WLAN? products.others.WLAN:"Not found"}, </span></p>
+                <p class="other-element"> <b> NFC: </b> <span class="other-item"> ${products.others?.NFC? products.others?.NFC:"Not found" }, </span></p> 
+                <p class="other-element"> <b> Radio</b> <span class="other-item">${products.others?.Radio? products.others?.Radio:"Not found"},  </span> </p>
+                <p class="other-element"> <b>Bluetooth: </b>  <span class="other-item"> ${products.others?.Bluetooth? products.others?.Bluetooth:"Not found"}, </span></p> 
+                <p class="other-element"> <b> USB: </b> <span class="other-item">  ${products.others?.USB? products.others?.USB:"Not found"}, </span></p> 
+                <p class="other-element"> <b> GPS: </b><span class="other-item">${products.others?.GPS? products.others?.GPS:"Not found"}, </span> </p>
+                <p class="other-element"> <b>WLAN: </b><span class="other-item"> ${products.others?.WLAN? products.others?.WLAN:"Not found"}, </span></p>
             </div>
             </div>
         </div>
     </div>
-
     `;
     productsDetailsContainer.appendChild(div);
 
 
 }
-
-
-
-
 

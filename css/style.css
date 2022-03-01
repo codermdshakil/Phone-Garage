@@ -230,6 +230,15 @@ close btn starts here
     width: 28px;
 }
 
+@media screen and (max-width:1024px){
+    .navber-style{
+        height: auto;   
+    }
+    .search-box{
+        width: 50%;
+    }
+}
+
 
 
 
