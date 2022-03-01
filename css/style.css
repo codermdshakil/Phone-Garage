@@ -133,29 +133,6 @@ header section starts here
     border-radius: 10px;
     background-color:#ffc0cb;
 }
-.seeAll-btn{
-    outline: 0;
-    cursor: pointer;
-    border: none;
-    padding: 0 56px;
-    height: 45px;
-    line-height: 45px;
-    border-radius: 25px;
-    background-color: #0070f3;
-    color: white;
-    font-weight: 400;
-    font-size: 16px;
-    box-shadow: 0 4px 14px 0 rgb(0 118 255 / 39%);
-    transition: background 0.2s ease,color 0.2s ease,box-shadow 0.2s ease;
-}
-.seeAll-btn:hover{
-    background: rgba(0,118,255,0.9);
-    box-shadow: 0 6px 20px rgb(0 118 255 / 23%);
-}
-
-.see-all{
-    width: 28px;
-}
 /*----------------------
  spiner starts here 
 ------------------------ */
@@ -223,6 +200,36 @@ close btn starts here
     top: -25px;
     right: -15px;
 }
+
+
+
+/* see all box starts here  */
+#see-allBox{
+    display: none;
+}
+.seeAll-btn{
+    outline: 0;
+    cursor: pointer;
+    border: none;
+    padding: 0 56px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 25px;
+    background-color: #0070f3;
+    color: white;
+    font-weight: 400;
+    font-size: 16px;
+    box-shadow: 0 4px 14px 0 rgb(0 118 255 / 39%);
+    transition: background 0.2s ease,color 0.2s ease,box-shadow 0.2s ease;
+}
+.seeAll-btn:hover{
+    background: rgba(0,118,255,0.9);
+    box-shadow: 0 6px 20px rgb(0 118 255 / 23%);
+}
+.see-all{
+    width: 28px;
+}
+
 
 
 

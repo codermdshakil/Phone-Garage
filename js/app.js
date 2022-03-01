@@ -3,6 +3,10 @@
 const phonesContainer = document.getElementById('phone-container');
 const productsDetailsContainer = document.getElementById('details-container');
 
+const seeAll = () => {
+    document.getElementById('see-allBox').style.display = "Block";
+}
+
 
 /* get Error massage  */
 const firstError = document.getElementById('error1');
@@ -14,7 +18,7 @@ const spinnerToggle  = (displayStyle) => {
     document.getElementById('spinner').style.display = displayStyle;
 }
 
-/* details Close  */
+/* all details details Close  */
 const detailsClose = () => {
     const productsDetailsContainer = document.getElementById('details-container');
     productsDetailsContainer.textContent = "";
@@ -23,7 +27,8 @@ const detailsClose = () => {
 /* laodData from api  */
 const loadData = () => {
     const searchInput =  document.getElementById('search-input');
-    const searchText = searchInput.value;
+    const searchTextValue = searchInput.value;
+    const searchText = searchTextValue.toLowerCase();
     searchInput.value = "";
 
     if(searchText === "" || searchText < 0){
@@ -83,7 +88,9 @@ const displayData = (phones) => {
         </div>
         `;
         phonesContainer.appendChild(div);
+        
     });
+
     spinnerToggle('none');
 
  
@@ -137,7 +144,10 @@ const displayDetails = (products) => {
 
     `;
     productsDetailsContainer.appendChild(div);
+
+
 }
+
 
 
 
