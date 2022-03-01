@@ -7,7 +7,6 @@ const seeAll = (displayStyle) => {
     document.getElementById('see-allBox').style.display = displayStyle;
 }
 
-
 // get Error massage  
 const firstError = document.getElementById('error1');
 const secoundError = document.getElementById('error3');
